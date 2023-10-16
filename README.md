@@ -32,6 +32,8 @@ React Native Expo 및 FireBase를 사용하여 구축된 AI 모바일 앱입니�
 
 -   **Firebase Account**: https://firebase.google.com 에서 Firebase 계정을 만들고 새 프로젝트를 설정합니다.
 
+-   **GPT API**: https://platform.openai.com/account/api-keys 에서 GPT API키를 생성합니다.
+
 ## 시작하기
 
 잡봇 앱을 시작하려면 아래 단계를 확인해주세요
@@ -61,6 +63,8 @@ npm install
 -   firebaseHelper.js의 자리 표시자 값을 Firebase 구성 값으로 바꿉니다.
 
 5. **GPT API**
+
+- 생성한 API Key를 Chat.js 의 Authorization 값에 붙혀넣습니다. - 해당 값은 별도로 관리하여야합니다.
 
 6. **Expo 개발 서버 시작:**
 
