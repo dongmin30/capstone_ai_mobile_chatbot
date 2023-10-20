@@ -55,7 +55,7 @@ const Home = ({ navigation }) => {
                     ]}
                 >
                     <Text style={[styles.boxText, { color: colors.text }]}>
-                        "Explain quantum computings in simple terms"
+                        "양자 컴퓨터에 대해 간단하게 설명해주세요."
                     </Text>
                 </View>
                 <View
@@ -69,7 +69,7 @@ const Home = ({ navigation }) => {
                     ]}
                 >
                     <Text style={[styles.boxText, { color: colors.text }]}>
-                        "How To make an HTTP request in JavaScript ?"
+                        "자바스크립트에서 HTTP 요청하는 방법을 알려주세요."
                     </Text>
                 </View>
                 <View
@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
                     ]}
                 >
                     <Text style={[styles.boxText, { color: colors.text }]}>
-                        "Got any creative ideas for a 10 year old's birthday"
+                        "20살 기념 생일 선물은 뭐가 좋을까요?"
                     </Text>
                 </View>
 
@@ -92,7 +92,7 @@ const Home = ({ navigation }) => {
                     onPress={() => navigation.navigate('Chat')}
                 >
                     <AntDesign name="plus" size={24} color={COLORS.white} />
-                    <Text style={styles.btnText}>New Chat</Text>
+                    <Text style={styles.btnText}>새 채팅</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

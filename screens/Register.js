@@ -126,14 +126,14 @@ const Register = ({ navigation }) => {
                             marginVertical: 8,
                         }}
                     >
-                        Welcome Back!
+                        환영합니다!
                     </Text>
 
                     <Input
                         onInputChanged={inputChangedHandler}
                         errorText={formState.inputValidities['fullName']}
                         id="fullName"
-                        placeholder="Enter your full name"
+                        placeholder="이름을 입력해주세요."
                         placeholderTextColor={colors.text}
                     />
 
@@ -141,7 +141,7 @@ const Register = ({ navigation }) => {
                         onInputChanged={inputChangedHandler}
                         errorText={formState.inputValidities['email']}
                         id="email"
-                        placeholder="Enter your email"
+                        placeholder="이메일을 입력해주세요."
                         placeholderTextColor={colors.text}
                     />
 
@@ -149,13 +149,13 @@ const Register = ({ navigation }) => {
                         onInputChanged={inputChangedHandler}
                         errorText={formState.inputValidities['password']}
                         id="password"
-                        placeholder="Enter your password"
+                        placeholder="비밀번호를 입력해주세요."
                         placeholderTextColor={colors.text}
                         secureTextEntry
                     />
 
                     <Button
-                        title="Register"
+                        title="회원가입"
                         onPress={authHandler}
                         isLoading={isLoading}
                         filled

@@ -108,7 +108,7 @@ const Chat = ({ navigation }) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'Bearer your_own_openai_api_key',
+                'Authorization': 'Bearer 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',
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
@@ -158,7 +158,7 @@ const Chat = ({ navigation }) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: 'Bearer your_own_openai_api_key',
+                'Authorization': 'Bearer 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',
             },
             body: JSON.stringify({
                 prompt: inputMessage,
@@ -282,7 +282,7 @@ const Chat = ({ navigation }) => {
                     <TextInput
                         value={inputMessage}
                         onChangeText={handleInputText}
-                        placeholder="Enter your question"
+                        placeholder="질문할 내용을 입력해주세요."
                         placeholderTextColor={colors.text}
                         style={{
                             color: colors.text,

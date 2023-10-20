@@ -56,13 +56,13 @@ const Login = ({ navigation }) => {
             }
         } catch (error) {
             const errorCode = error.code
-            let message = 'Something went wrong'
+            let message = '오류가 발생했습니다.'
 
             if (
                 errorCode === 'auth/wrong-password' ||
                 errorCode === 'auth/user-not-found'
             ) {
-                message = 'Wrong email or password'
+                message = '이메일과 비밀번호를 확인해주세요.'
             }
 
             setError(message)
@@ -104,14 +104,14 @@ const Login = ({ navigation }) => {
                             marginVertical: 8,
                         }}
                     >
-                        Login to your account
+                        계정 정보를 입력해주세요
                     </Text>
 
                     <Input
                         onInputChanged={inputChangedHandler}
                         errorText={formState.inputValidities['email']}
                         id="email"
-                        placeholder="Enter your email"
+                        placeholder="이메일을 입력해주세요"
                         placeholderTextColor={colors.text}
                     />
 
@@ -119,13 +119,13 @@ const Login = ({ navigation }) => {
                         onInputChanged={inputChangedHandler}
                         errorText={formState.inputValidities['password']}
                         id="password"
-                        placeholder="Enter your password"
+                        placeholder="비밀번호를 입력해주세요"
                         placeholderTextColor={colors.text}
                         secureTextEntry
                     />
 
                     <Button
-                        title="Login"
+                        title="로그인"
                         filled
                         isLoading={isLoading}
                         onPress={loginHandler}
