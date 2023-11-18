@@ -190,6 +190,7 @@ const Chat = ({ navigation }) => {
     }
 
     const submitHandler = () => {
+        setInputMessage('')
         if (inputMessage.toLowerCase().startsWith('generate image')) {
             generateImages()
         } else {

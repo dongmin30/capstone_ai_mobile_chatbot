@@ -82,9 +82,9 @@ const Register = ({ navigation }) => {
             }
         } catch (error) {
             const errorCode = error.code
-            let message = 'Something went wrong !'
+            let message = '문제가 발생했습니다'
             if (errorCode === 'auth/email-already-in-use') {
-                message = 'This email is already in use'
+                message = '해당 이메일은 이미 사용중입니다'
             }
 
             setError(message)
@@ -95,7 +95,7 @@ const Register = ({ navigation }) => {
     // Display error if something went wrong
     useEffect(() => {
         if (error) {
-            Alert.alert('An error occured', error)
+            Alert.alert('오류가 발생했습니다', error)
         }
     }, [error])
 

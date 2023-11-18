@@ -4,6 +4,7 @@ export const validateString = (id, value) => {
     const constraints = {
         presence: {
             allowEmpty: false,
+            message: "은(는) 비어 있는 값을 넣을 수 없습니다.",
         },
     }
 
@@ -11,7 +12,7 @@ export const validateString = (id, value) => {
         constraints.format = {
             pattern: '.+',
             flags: 'i',
-            message: "비어 있는 값을 넣을 수 없습니다.",
+            message: "은(는) 비어 있는 값을 넣을 수 없습니다                                                                                                                                                                                                                                                                                   ",
         }
     }
 
@@ -23,11 +24,14 @@ export const validateEmail = (id, value) => {
     const constraints = {
         presence: {
             allowEmpty: false,
+            message: '은 비어 있는 값을 넣을 수 없습니다.',
         },
     }
 
     if (value !== '') {
-        constraints.email = true
+        constraints.email = {
+            message: '형식이 올바르지 않습니다.'
+        }
     }
 
     const validationResult = validate({ [id]: value }, { [id]: constraints })
@@ -38,6 +42,7 @@ export const validatePassword = (id, value) => {
     const constraints = {
         presence: {
             allowEmpty: false,
+            message: '는 비어 있는 값을 넣을 수 없습니다.',
         },
     }
 
