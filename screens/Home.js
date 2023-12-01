@@ -94,6 +94,14 @@ const Home = ({ navigation }) => {
                     <AntDesign name="plus" size={24} color={COLORS.white} />
                     <Text style={styles.btnText}>새 채팅</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() => navigation.navigate('UserChat')}
+                >
+                    <AntDesign name="plus" size={24} color={COLORS.white} />
+                    <Text style={styles.btnText}>유저 채팅</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )

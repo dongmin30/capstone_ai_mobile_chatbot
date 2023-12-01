@@ -36,7 +36,7 @@ const Welcome = ({ navigation }) => {
                             marginVertical: 8,
                         }}
                     >
-                        AI 챗봇 잡봇입니다 - GPT 버전
+                        업무 지원 서비스 잡봇입니다.
                     </Text>
 
                     <Text
