@@ -9,9 +9,10 @@ import Button from '../components/Button'
 import { reducer } from '../utils/reducers/formReducers'
 import { validateInput } from '../utils/actions/formActions'
 import { getFirebaseApp } from '../utils/firebaseHelper'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { ref, child, set, getDatabase } from 'firebase/database'
 import { useTheme } from '../themes/ThemeProvider'
+import { Avatar } from 'react-native-gifted-chat'
 
 const initialState = {
     inputValues: {
@@ -66,7 +67,25 @@ const Register = ({ navigation }) => {
                 auth,
                 formState.inputValues.email,
                 formState.inputValues.password
-            )
+            ).then((userCredential) => {
+                const user = userCredential.user;
+                updateProfile(user, {
+                    displayName: name,
+                    photoURL: avatar ? avatar : 'https://gravatar.com/avatar/94d45dbdba988afacf30d916e7aaad69?s=200&d=mp&r=x',
+                })
+                .then(() => {
+                    Alert.alert('가입이 완료되었습니다, 로그인해주세요.');
+                })
+                .catch((error) => {
+                    Alert.alert('오류가 발생했습니다', error)
+                })
+                
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
 
             const { uid } = result.user
 

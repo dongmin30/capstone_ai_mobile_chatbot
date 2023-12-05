@@ -7,7 +7,6 @@ import { MaterialIcons, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { Bubble, GiftedChat } from 'react-native-gifted-chat'
 import { useTheme } from '../themes/ThemeProvider'
 
-// Thanks for watching...
 const Chat = ({ navigation }) => {
     const [inputMessage, setInputMessage] = useState('')
     const [outputMessage, setOutputMessage] = useState(
