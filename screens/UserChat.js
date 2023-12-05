@@ -5,6 +5,7 @@ import { auth, db } from '../utils/firebaseHelper';
 import { getAuth, signOut } from 'firebase/auth';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Alert } from 'react-native';
+import { addDoc, collection } from 'firebase/firestore';
 const UserChat = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
   const signOutNow = () => {
@@ -51,6 +52,8 @@ const UserChat = ({ navigation }) => {
   }, []);
   const onSend = useCallback((messages = []) => {
     setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    const { _id, createdAt, text, user, } = messages[0]
+    addDoc(collection(db, 'chats'), { _id, createdAt, text, user});
   }, []);
   return (
     <GiftedChat
