@@ -3,7 +3,6 @@ import React, { useCallback, useReducer, useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import PageContainer from '../components/PageContainer'
 import { FONTS, SIZES, images } from '../constants'
-import { COLORS } from '../constants'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { reducer } from '../utils/reducers/formReducers'
@@ -12,7 +11,6 @@ import { getFirebaseApp } from '../utils/firebaseHelper'
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { ref, child, set, getDatabase } from 'firebase/database'
 import { useTheme } from '../themes/ThemeProvider'
-import { Avatar } from 'react-native-gifted-chat'
 
 const initialState = {
     inputValues: {
@@ -67,16 +65,7 @@ const Register = ({ navigation }) => {
                 auth,
                 formState.inputValues.email,
                 formState.inputValues.password
-            ).then((userCredential) => {
-                const user = userCredential.user;
-                updateProfile(user, {
-                    displayName: name,
-                    photoURL: avatar ? avatar : 'https://gravatar.com/avatar/94d45dbdba988afacf30d916e7aaad69?s=200&d=mp&r=x',
-                })
-                .then(() => {
-                    Alert.alert('가입이 완료되었습니다, 로그인해주세요.');
-                })    
-            })
+            )
 
             const { uid } = result.user
 
