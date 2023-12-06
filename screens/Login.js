@@ -9,7 +9,7 @@ import Button from '../components/Button'
 import { reducer } from '../utils/reducers/formReducers'
 import { validateInput } from '../utils/actions/formActions'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { getFirebaseApp } from '../utils/firebaseHelper'
+import { auth } from '../utils/firebaseHelper'
 import { useTheme } from '../themes/ThemeProvider'
 
 const initialState = {
@@ -39,8 +39,6 @@ const Login = ({ navigation }) => {
     )
 
     const loginHandler = async () => {
-        const app = getFirebaseApp()
-        const auth = getAuth(app)
         setIsLoading(true)
 
         try {
