@@ -2,10 +2,10 @@ import React, { useEffect, useCallback, useState, useLayoutEffect } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { auth, db } from '../utils/firebaseHelper';
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Alert } from 'react-native';
-import { addDoc, collection } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, orderBy, onSnapshot } from 'firebase/firestore';
 const UserChat = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
   const signOutNow = () => {
@@ -18,41 +18,46 @@ const UserChat = ({ navigation }) => {
   }
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => (
-        <View style={{ marginLeft: 20 }}>
-          <Avatar
-            rounded
-            source={{
-              uri: auth?.currentUser?.photoURL,
+        headerLeft: () => (
+            <View style={{ marginLeft: 20 }}>
+                <Avatar
+                    rounded
+                    source={{
+                        uri: auth?.currentUser?.photoURL,
+                    }}
+                />
+            </View>
+        ),
+        headerRight: () => (
+            <TouchableOpacity style={{
+                marginRight: 10
             }}
-          />
-        </View>
-      ),
-      headerRight: () => (
-        <TouchableOpacity style = {{ marginRight: 10 }}
-        onPress={signOutNow}
-        ></TouchableOpacity>
-      )
+                onPress={signOutNow}
+            >
+                <Text>logout</Text>
+            </TouchableOpacity>
+        )
     })
+
+    const q = query(collection(db, 'chats'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => setMessages(
+        snapshot.docs.map(doc => ({
+            _id: doc.data()._id,
+            createdAt: doc.data().createdAt.toDate(),
+            text: doc.data().text,
+            user: doc.data().user,
+        }))
+    ));
+
+    return () => {
+      unsubscribe();
+    };
+
   }, [navigation]);
 
-  useEffect(() => {
-    setMessages([
-      { 
-        _id:1,
-        text: 'Hello developer',
-        createAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-          avatar: 'https://gravatar.com/avatar/94d45dbdba988afacf30d916e7aaad69?s=200&d=mp&r=x'
-        },
-      },
-    ])
-  }, []);
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
     const { _id, createdAt, text, user, } = messages[0]
+
     addDoc(collection(db, 'chats'), { _id, createdAt, text, user});
   }, []);
   return (

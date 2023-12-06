@@ -75,17 +75,8 @@ const Register = ({ navigation }) => {
                 })
                 .then(() => {
                     Alert.alert('가입이 완료되었습니다, 로그인해주세요.');
-                })
-                .catch((error) => {
-                    Alert.alert('오류가 발생했습니다', error)
-                })
-                
+                })    
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage);
-            });
 
             const { uid } = result.user
 
