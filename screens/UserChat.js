@@ -10,11 +10,8 @@ const UserChat = ({ navigation }) => {
     const [messages, setMessages] = useState([]);
     const signOutNow = () => {
         signOut(auth).then(() => {
-            // Sign-out successful.
             navigation.replace('Login');
-        }).catch((error) => {
-            // An error happened.
-        });
+        })
     }
     useLayoutEffect(() => {
         navigation.setOptions({

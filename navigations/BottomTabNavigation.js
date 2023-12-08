@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import { COLORS } from '../constants'
-import { Home, UserChat, Saved } from '../screens'
+import { Home, UserChat, Schedule } from '../screens'
 import { useTheme } from '../themes/ThemeProvider'
 
 const Tab = createBottomTabNavigator()
@@ -46,8 +46,8 @@ const BottomTabNavigation = () => {
             />
 
             <Tab.Screen
-                name="Saved"
-                component={Saved}
+                name="Schedule"
+                component={Schedule}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (

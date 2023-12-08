@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Welcome, Login, Register, Home, Chat, UserChat } from '../screens'
+import { Welcome, Login, Register, Home, Chat, UserChat, Schedule } from '../screens'
 import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigation from './BottomTabNavigation'
 
@@ -47,6 +47,13 @@ const AppNavigation = () => {
                 <Stack.Screen
                     name="UserChat"
                     component={UserChat}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="Schedule"
+                    component={Schedule}
                     options={{
                         headerShown: false,
                     }}
