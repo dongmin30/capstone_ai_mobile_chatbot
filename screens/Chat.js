@@ -10,7 +10,7 @@ import { useTheme } from '../themes/ThemeProvider'
 const Chat = ({ navigation }) => {
     const [inputMessage, setInputMessage] = useState('')
     const [outputMessage, setOutputMessage] = useState(
-        'Results should be shown here.'
+        '결과가 여기에 표시되어야 합니다.'
     )
     const [isTyping, setIsTyping] = useState(false)
 
@@ -85,7 +85,7 @@ const Chat = ({ navigation }) => {
         return <Bubble {...props} />
     }
 
-    // Implementing chat generation using gpt-3.5-turbo model
+    // GPT 3.5 터보 모델 사용
     const generateText = () => {
         setIsTyping(true)
         const message = {
@@ -100,7 +100,7 @@ const Chat = ({ navigation }) => {
         )
 
         /**
-         * Always put your api key in an environment file
+         * GPT API KEY 입력을 해야 정상동작 한다.
          */
 
         fetch('https://api.openai.com/v1/chat/completions', {

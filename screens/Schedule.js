@@ -46,15 +46,10 @@ LocaleConfig.locales['ko'] = {
 LocaleConfig.defaultLocale = 'ko';
 
 const Schedule = ({ navigation }) => {
-  const calendarRef = useRef(null);
-
-
-
   return (
     <View style={styles.container}>
       <View style={styles.calendarContainer}>
         <Calendar
-          ref={calendarRef}
           style={{ height: 400, width: 400 }} // Adjust the calendar size here
           markedDates={{}}
         />
