@@ -61,7 +61,14 @@ const UserChat = ({ navigation }) => {
         addDoc(collection(db, 'chats'), { _id, createdAt,  text, user });
     }, []);
 
+    const styles = StyleSheet.create({
+      tabBarPadding: {
+          height: 61, // height 조정
+      },
+    });
+
     return (
+      <View style={{ flex: 1 }}>
         <GiftedChat
             messages={messages}
             showAvatarForEveryMessage={true}
@@ -73,6 +80,8 @@ const UserChat = ({ navigation }) => {
                 avatar: auth?.currentUser?.photoURL
             }}
         />
+        <View style={styles.tabBarPadding}></View>
+      </View>
     );
 }
 

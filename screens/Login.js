@@ -54,7 +54,7 @@ const Login = ({ navigation }) => {
             }
         } catch (error) {
             const errorCode = error.code
-            let message = '오류가 발생했습니다.'
+            let message = '이메일과 비밀번호를 확인해주세요.'
 
             if (
                 errorCode === 'auth/wrong-password' ||

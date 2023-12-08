@@ -3,7 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import { COLORS } from '../constants'
-import { Home, Profile, Saved } from '../screens'
+import { Home, UserChat, Saved } from '../screens'
 import { useTheme } from '../themes/ThemeProvider'
 
 const Tab = createBottomTabNavigator()
@@ -58,7 +58,7 @@ const BottomTabNavigation = () => {
                                     backgroundColor: COLORS.primary,
                                     height: Platform.OS == 'ios' ? 50 : 60,
                                     width: Platform.OS == 'ios' ? 50 : 60,
-                                    top: Platform.OS == 'ios' ? -10 : -20,
+                                    top: Platform.OS == 'ios' ? -50 : -0,
                                     borderRadius:
                                         Platform.OS == 'ios' ? 25 : 30,
                                     borderWidth: 2,
@@ -77,8 +77,8 @@ const BottomTabNavigation = () => {
             />
 
             <Tab.Screen
-                name="Profile"
-                component={Profile}
+                name="UserChat"
+                component={UserChat}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
