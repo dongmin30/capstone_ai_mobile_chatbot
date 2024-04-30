@@ -3,8 +3,6 @@
 React Native Expo 및 FireBase를 사용하여 구축된 AI 모바일 앱입니다.
 앱은 사용자 로그인, 등록, 채팅 완료, 이미지 생성과 같은 기능을 제공합니다.
 
-![Chat GPT Mobile](https://i.ibb.co/RcNyyT6/chatgpt.png)
-
 ## 앱의 특징
 
 잡봇은 아래와 같은 기능을 제공합니다.:
